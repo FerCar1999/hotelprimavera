@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Hotel Primavera | Tipos de Habitaciones</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
+        <a class="navbar-brand" href="#">Hotel Primavera</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Tipo de Habitaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Habitaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Usuarios</a>
+            </li>          
+          </ul>  
+          <a class="btn btn-primary" href="#">Mi Perfil</a>&nbsp;
+          <a class="btn btn-danger" href="#">Cerrar Sesión</a>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+    	<hr>
+      <div class="container-fluid"> 
+        <h2 class="font-weight-bold text-center text-capitalize">tipos de habitaciones</h2>
+        <hr>
+        <div class="row">
+        	<div class="col-md-12 text-center">
+        		<a class="btn btn-success" href="#">Agregar</a>
+        	</div>
+        	<div class="container mt-3 text-center">
+        		<div class="table-responsive">
+        		<table class="table">
+				  <thead class="thead-dark">
+				    <tr>
+				      <th scope="col">Tipo Habitación</th>
+				      <th scope="col">Acciones</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <td>Presidencial</td>
+				      <td><button type="button" class="btn btn-primary">Modificar</button>
+				      <button type="button" class="btn btn-danger">Eliminar</button></td>
+				    </tr>
+				    <tr>
+				      <td>Normal</td>
+				      <td><button type="button" class="btn btn-primary">Modificar</button>
+				      <button type="button" class="btn btn-danger">Eliminar</button></td>
+				    </tr>
+				    <tr>
+				      <td>Cuarto</td>
+				      <td><button type="button" class="btn btn-primary">Modificar</button>
+				      <button type="button" class="btn btn-danger">Eliminar</button></td>
+				    </tr>
+				  </tbody>
+				</table></div>
+        	</div>
+        </div>
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+      <p>Hotel Primavera</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+  </body>
+</html>
