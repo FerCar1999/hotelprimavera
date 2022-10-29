@@ -18,7 +18,7 @@
   <body>
 
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
+       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
         <a class="navbar-brand" href="#">Hotel Primavera</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -26,24 +26,10 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="room-statuses/index">Estados de Habitaciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="room-types/index">Tipos de Habitaciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Habitaciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="user-types/index">Tipos de Usuarios</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="users/index">Usuarios</a>
-            </li>          
+        
           </ul>  
-          <a class="btn btn-primary" href="#">Mi Perfil</a>&nbsp;
-          <a class="btn btn-danger" href="login">Cerrar Sesión</a>
+          <a class="btn btn-primary" href="register">Registrarse</a>&nbsp;
+          <a class="btn btn-danger" href="login">Iniciar Sesión</a>
         </div>
       </nav>
     </header>
@@ -51,7 +37,7 @@
     <main role="main">
     	<hr>
       <div class="container-fluid"> 
-        <h2 class="font-weight-bold text-center text-capitalize">Nuevo Usuario</h2>
+        <h2 class="font-weight-bold text-center text-capitalize">Registrese</h2>
         <hr>
         <div class="row">
         	<div class="container mt-3">
@@ -82,19 +68,8 @@
 						  	<label for="inputAddress">Email</label>
 						    <input type="email" class="form-control" id="inputAddress" placeholder="Ingrese el correo electrónico del usuario">
 						  </div>
-						  <div class="form-group col-md-12">
-						  		<label for="inputState">Tipo de Usuario</label>
-						      	<select id="inputState" class="form-control">
-						        	<option selected>Seleccione el tipo de usuario</option>
-						        	<option>Administrador</option>
-						        	<option>Lobby</option>
-						        	<option>Empleado</option>
-						        	<option>Cliente</option>
-						      	</select>
-						  </div>
 						  <div class="col-md-12 text-center">
-							  <button type="submit" class="btn btn-success">Agregar</button>
-							  <button type="submit" class="btn btn-danger">Cancelar</button>
+							  <button type="submit" class="btn btn-success">Registrarme</button>
 						  </div>
 					  </div>
 				</form>
