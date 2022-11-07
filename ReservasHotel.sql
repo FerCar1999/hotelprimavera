@@ -1,3 +1,4 @@
+--hola
 create database ReservasHotelAlt
 use ReservasHotelAlt
 create table TipoUsuario(
