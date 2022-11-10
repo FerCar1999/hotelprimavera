@@ -1,20 +1,35 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.hotel.reserva.models;
+*/
+package com.sv.hotelprimavera.models;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author Luis Bernal
  */
+@Entity
+@Table(name="habitacion")
 public class Habitacion {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idHabitacion;
     private String nombreHabitacion;
     private int pisoHabitacion;
     private int capacidadHabitacion;
     private String descripcionHabitacion;
+    @OneToOne
+    @JoinColumn(name = "idTipoHabitacion")
     private TipoHabitacion idTipoHabitacion;
+    @OneToOne
+    @JoinColumn(name = "idEstadoHabitacion")
     private EstadoHabitacion idEstadoHabitacion;
 
     public Habitacion() {

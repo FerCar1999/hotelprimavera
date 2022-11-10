@@ -2,15 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.hotel.reserva.models;
-
+package com.sv.hotelprimavera.models;
 import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Luis Bernal
  */
+@Entity
+@Table(name="detalleusuario")
 public class DetalleUsuario {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idDetalleUsuario;
     private String nombresUsuario;
     private String apellidosUsuario;
