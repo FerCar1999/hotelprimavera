@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sv.hotelprimavera.interfaces.InterfaceEstadoHabitacion;
+import com.sv.hotelprimavera.models.EstadoHabitacion;
 import com.sv.hotelprimavera.serviceInterface.IEstadoHabitacionService;
 
 @Service
@@ -16,19 +17,19 @@ public class EstadoHabitacionService  implements IEstadoHabitacionService{
 	private InterfaceEstadoHabitacion data;
 
 	@Override
-	public List<EstadoHabitacionService> listar() {
+	public List<EstadoHabitacion> listar() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Optional<EstadoHabitacionService> listarId(int id) {
+	public Optional<EstadoHabitacion> listarId(int id) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
 	@Override
-	public int save(EstadoHabitacionService eh) {
+	public int save(EstadoHabitacion eh) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

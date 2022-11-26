@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.sv.hotelprimavera.models.EstadoHabitacion;
-import com.sv.hotelprimavera.service.EstadoHabitacionService;
 
 
 public interface IEstadoHabitacionService {
