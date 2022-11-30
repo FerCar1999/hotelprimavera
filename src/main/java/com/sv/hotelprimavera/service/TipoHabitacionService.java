@@ -18,26 +18,36 @@ public class TipoHabitacionService  implements ITipoHabitacionService{
 	
 	@Override
 	public List<TipoHabitacion> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		return data.findActive();
 	}
 
 	@Override
-	public Optional<TipoHabitacion> listarId(int id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public TipoHabitacion listarId(int id) {
+		
+		return data.findById(id).get();
 	}
 
 	@Override
-	public int save(TipoHabitacion th) {
-		// TODO Auto-generated method stub
-		return 0;
+	public TipoHabitacion save(TipoHabitacion th) {
+		return data.save(th);
 	}
 
 	@Override
-	public void delete(int id) {
-		// TODO Auto-generated method stub
+	public TipoHabitacion delete(TipoHabitacion th) {
+		return data.save(th);
 		
 	}
+
+	@Override
+	public TipoHabitacion update(TipoHabitacion th) {
+		return data.save(th);
+		
+	}
+
+//	@Override
+//	public List<TipoHabitacion> search(String palabra) {
+//		
+//		return data.search(palabra);
+//	}
 
 }

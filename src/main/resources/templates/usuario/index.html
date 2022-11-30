@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Hotel Primavera | Estados de Habitaciones</title>
+    <title>Hotel Primavera | Usuarios</title>
     <!-- Bootstrap core CSS -->
     <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -27,23 +27,23 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="index">Estados de Habitaciones</a>
+              <a class="nav-link" th:href="@{/etadohabitacion/}">Estados de Habitaciones</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="room-types/index">Tipos de Habitaciones</a>
+              <a class="nav-link active" th:href="@{/tipohabitacion/}">Tipos de Habitaciones</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Habitaciones</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="user-types/index">Tipos de Usuarios</a>
+              <a class="nav-link" th:href="@{/tipousuario/}">Tipos de Usuarios</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="users/index">Usuarios</a>
+              <a class="nav-link" th:href="@{/usuario/}">Usuarios</a>
             </li>          
-          </ul>   
+          </ul>  
           <a class="btn btn-primary" href="#">Mi Perfil</a>&nbsp;
-          <a class="btn btn-danger" href="login">Cerrar Sesión</a>
+          <a class="btn btn-danger" th:href="@{/login}">Cerrar Sesión</a>
         </div>
       </nav>
     </header>
@@ -51,7 +51,7 @@
     <main role="main">
     	<hr>
       <div class="container-fluid"> 
-        <h2 class="font-weight-bold text-center text-capitalize">Estados de habitaciones</h2>
+        <h2 class="font-weight-bold text-center text-capitalize">Usuarios</h2>
         <hr>
         <div class="row">
         	<div class="col-md-12 text-center">
@@ -62,30 +62,57 @@
         		<table class="table">
 				  <thead class="thead-dark">
 				    <tr>
-				      <th scope="col">Estado Habitacion</th>
+				      <th scope="col">Nombres</th>
+				      <th scope="col">Apellidos</th>
+				      <th scope="col">Telefono</th>
+				      <th scope="col">Tipo Usuario</th>
 				      <th scope="col">Acciones</th>
 				    </tr>
 				  </thead>
 				  <tbody>
 				    <tr>
-				      <td>Disponible</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
+				      <td>Fernando Ernesto</td>
+				      <td>Carranza Guardado</td>
+				      <td>2222-2222</td>
+				      <td>Administrador</td>
+				      <td>
+				      <button type="button" class="btn btn-primary">Modificar</button>
+				      <button type="button" class="btn btn-warning">Actualizar Contraseña</button>
+				      <button type="button" class="btn btn-danger">Eliminar</button>
+				      </td>
 				    </tr>
 				    <tr>
-				      <td>En Uso</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
+				      <td>Fernando Ernesto</td>
+				      <td>Carranza Guardado</td>
+				      <td>2222-2222</td>
+				      <td>Empleado</td>
+				      <td>
+				      <button type="button" class="btn btn-primary">Modificar</button>
+				      <button type="button" class="btn btn-warning">Actualizar Contraseña</button>
+				      <button type="button" class="btn btn-danger">Eliminar</button>
+				      </td>
 				    </tr>
 				    <tr>
-				      <td>En Remodelación</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
+				      <td>Fernando Ernesto</td>
+				      <td>Carranza Guardado</td>
+				      <td>2222-2222</td>
+				      <td>Cliente</td>
+				      <td>
+				      <button type="button" class="btn btn-primary">Modificar</button>
+				      <button type="button" class="btn btn-warning">Actualizar Contraseña</button>
+				      <button type="button" class="btn btn-danger">Eliminar</button>
+				      </td>
 				    </tr>
 				    <tr>
-				      <td>En Limpieza</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
+				      <td>Fernando Ernesto</td>
+				      <td>Carranza Guardado</td>
+				      <td>2222-2222</td>
+				      <td>Cliente</td>
+				      <td>
+				      <button type="button" class="btn btn-primary">Modificar</button>
+				      <button type="button" class="btn btn-warning">Actualizar Contraseña</button>
+				      <button type="button" class="btn btn-danger">Eliminar</button>
+				      </td>
 				    </tr>
 				  </tbody>
 				</table></div>

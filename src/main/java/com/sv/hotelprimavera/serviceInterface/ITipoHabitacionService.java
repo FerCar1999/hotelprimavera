@@ -6,8 +6,10 @@ import com.sv.hotelprimavera.models.TipoHabitacion;
 
 public interface ITipoHabitacionService {
 	public List<TipoHabitacion> listar();
-	public Optional<TipoHabitacion>listarId(int id);
-	public int save (TipoHabitacion th);
-	public void delete (int id);
+	public TipoHabitacion listarId(int id);
+	public TipoHabitacion save (TipoHabitacion th);
+	public TipoHabitacion update(TipoHabitacion th);
+	public TipoHabitacion delete (TipoHabitacion th);
+	//public List<TipoHabitacion> search(String palabra);
 
 }

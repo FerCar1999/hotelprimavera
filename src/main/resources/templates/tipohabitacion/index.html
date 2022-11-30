@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Hotel Primavera | Tipos de Usuarios</title>
+    <title>Hotel Primavera | Tipos de Habitaciones</title>
     <!-- Bootstrap core CSS -->
     <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -27,23 +30,23 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link active" th:href="@{/room-statuses/index}">Estados de Habitaciones</a>
+              <a class="nav-link" th:href="@{/etadohabitacion/}">Estados de Habitaciones</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="room-types/index">Tipos de Habitaciones</a>
+              <a class="nav-link active" th:href="@{/tipohabitacion/}">Tipos de Habitaciones</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Habitaciones</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="user-types/index">Tipos de Usuarios</a>
+              <a class="nav-link" th:href="@{/tipousuario/}">Tipos de Usuarios</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="users/index">Usuarios</a>
+              <a class="nav-link" th:href="@{/usuario/}">Usuarios</a>
             </li>          
           </ul>  
           <a class="btn btn-primary" href="#">Mi Perfil</a>&nbsp;
-          <a class="btn btn-danger" href="login">Cerrar Sesión</a>
+          <a class="btn btn-danger" th:href="@{/login}">Cerrar Sesión</a>
         </div>
       </nav>
     </header>
@@ -51,41 +54,28 @@
     <main role="main">
     	<hr>
       <div class="container-fluid"> 
-        <h2 class="font-weight-bold text-center text-capitalize">tipos de usuarios</h2>
+        <h2 class="font-weight-bold text-center text-capitalize">Tipos de habitaciones</h2>
         <hr>
         <div class="row">
         	<div class="col-md-12 text-center">
-        		<a class="btn btn-success" href="insert">Agregar</a>
+        		<a class="btn btn-success" th:href="@{/tipohabitacion/insert}">Agregar</a>
+        		
         	</div>
         	<div class="container mt-3 text-center">
         		<div class="table-responsive">
         		<table class="table">
 				  <thead class="thead-dark">
 				    <tr>
-				      <th scope="col">Tipo Usuario</th>
+				      <th scope="col">Tipo Habitación</th>
 				      <th scope="col">Acciones</th>
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <tr>
-				      <td>Administrador</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
-				    </tr>
-				    <tr>
-				      <td>Lobby</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
-				    </tr>
-				    <tr>
-				      <td>Empleado</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
-				    </tr>
-				    <tr>
-				      <td>Cliente</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
+				 
+				    <tr th:each="tipohabitacion: ${tipohabitacion}">
+				      <td th:text="${tipohabitacion.TipoHabitacion}"></td>
+				      <td><a class="btn btn-primary" th:href="@{/tipohabitacion/update/{id}(id=${tipohabitacion.idTipoHabitacion})}">Modificar</a>
+				      <a class="btn btn-danger" th:href="@{/tipohabitacion/delete/{id}(id=${tipohabitacion.idTipoHabitacion})}">Eliminar</a></td>
 				    </tr>
 				  </tbody>
 				</table></div>

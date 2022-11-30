@@ -4,6 +4,7 @@
  */
 package com.sv.hotelprimavera.models;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,32 +22,44 @@ public class TipoHabitacion {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idTipoHabitacion;
     private String TipoHabitacion;
+    private int estadoTipoHabitacion=1;
 
     public TipoHabitacion() {
     }
 
-    
-    public TipoHabitacion(int idTipoHabitacion, String TipoHabitacion) {
-        this.idTipoHabitacion = idTipoHabitacion;
-        this.TipoHabitacion = TipoHabitacion;
-    }
+	public TipoHabitacion(int idTipoHabitacion, String tipoHabitacion, int estadoHabitacion) {
+		super();
+		this.idTipoHabitacion = idTipoHabitacion;
+		TipoHabitacion = tipoHabitacion;
+		this.estadoTipoHabitacion = estadoHabitacion;
+	}
+
+	public int getIdTipoHabitacion() {
+		return idTipoHabitacion;
+	}
+
+	public void setIdTipoHabitacion(int idTipoHabitacion) {
+		this.idTipoHabitacion = idTipoHabitacion;
+	}
+
+	public String getTipoHabitacion() {
+		return TipoHabitacion;
+	}
+
+	public void setTipoHabitacion(String tipoHabitacion) {
+		TipoHabitacion = tipoHabitacion;
+	}
+
+	public int getEstadoTipoHabitacion() {
+		return estadoTipoHabitacion;
+	}
+
+	public void setEstadoTipoHabitacion(int estadoHabitacion) {
+		this.estadoTipoHabitacion = estadoHabitacion;
+	}
 
     
-    public int getIdTipoHabitacion() {
-        return idTipoHabitacion;
-    }
-
-    public void setIdTipoHabitacion(int idTipoHabitacion) {
-        this.idTipoHabitacion = idTipoHabitacion;
-    }
-
-    public String getTipoHabitacion() {
-        return TipoHabitacion;
-    }
-
-    public void setTipoHabitacion(String TipoHabitacion) {
-        this.TipoHabitacion = TipoHabitacion;
-    }
+   
     
     
 }

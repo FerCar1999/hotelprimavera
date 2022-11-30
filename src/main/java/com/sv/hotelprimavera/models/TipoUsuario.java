@@ -21,13 +21,15 @@ public class TipoUsuario {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idTipoUsuario;
     private String tipoUsuario;
+    private int estadoTipoUsuario;
 
     public TipoUsuario() {
     }
 
-    public TipoUsuario(int idTipoUsuario, String tipoUsuario) {
+    public TipoUsuario(int idTipoUsuario, String tipoUsuario,int estadoTipoUsuario) {
         this.idTipoUsuario = idTipoUsuario;
         this.tipoUsuario = tipoUsuario;
+        this.estadoTipoUsuario = estadoTipoUsuario;
     }
 
     public int getIdTipoUsuario() {
@@ -45,5 +47,13 @@ public class TipoUsuario {
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
+
+	public int getEstadoTipoUsuario() {
+		return estadoTipoUsuario;
+	}
+
+	public void setEstadoTipoUsuario(int estadoTipoUsuario) {
+		this.estadoTipoUsuario = estadoTipoUsuario;
+	}
     
 }

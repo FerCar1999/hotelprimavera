@@ -3,7 +3,8 @@ create database ReservasHotelAlt
 use ReservasHotelAlt
 create table TipoUsuario(
 	idTipoUsuario int not null primary key AUTO_INCREMENT,
-	tipoUsuario varchar(50) not null
+	tipoUsuario varchar(50) not null,
+	estadoTipoUsuario int not null
 );
 create table DetalleUsuario(
 	idDetalleUsuario int not null primary key AUTO_INCREMENT,
@@ -20,14 +21,15 @@ create table Usuario(
 	fechaRegistro date,
 	idDetalleUsuario int not null,
 	idTipoUsuario int not null,
-	estadoUsuario int,
+	estadoUsuario int not null,
 	constraint fk_detalleUsuario foreign key (idDetalleUsuario) references DetalleUsuario(idDetalleUsuario),
 	constraint fk_tipoUsuario foreign key (idTipoUsuario) references TipoUsuario(idTipoUsuario)
 );
 
 create table TipoHabitacion(
 	idTipoHabitacion int not null primary key AUTO_INCREMENT,
-	tipoHabitacion varchar(100) not null
+	tipoHabitacion varchar(100) not null,
+	estadoTipoHabitacion int not null
 );
 create table EstadoHabitacion(
 	idEstadoHabitacion int not null primary key AUTO_INCREMENT,

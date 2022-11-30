@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Hotel Primavera | Tipos de Habitaciones</title>
+    <title>Hotel Primavera | Usuarios</title>
     <!-- Bootstrap core CSS -->
     <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -24,26 +24,26 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                  <ul class="navbar-nav mr-auto">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="room-statuses/index">Estados de Habitaciones</a>
+              <a class="nav-link" th:href="@{/etadohabitacion/}">Estados de Habitaciones</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="room-types/index">Tipos de Habitaciones</a>
+              <a class="nav-link active" th:href="@{/tipohabitacion/}">Tipos de Habitaciones</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Habitaciones</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="user-types/index">Tipos de Usuarios</a>
+              <a class="nav-link" th:href="@{/tipousuario/}">Tipos de Usuarios</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="users/index">Usuarios</a>
+              <a class="nav-link" th:href="@{/usuario/}">Usuarios</a>
             </li>          
           </ul>  
           <a class="btn btn-primary" href="#">Mi Perfil</a>&nbsp;
-          <a class="btn btn-danger" href="login">Cerrar Sesión</a>
+          <a class="btn btn-danger" th:href="@{/login}">Cerrar Sesión</a>
         </div>
       </nav>
     </header>
@@ -51,39 +51,19 @@
     <main role="main">
     	<hr>
       <div class="container-fluid"> 
-        <h2 class="font-weight-bold text-center text-capitalize">tipos de habitaciones</h2>
+        <h2 class="font-weight-bold text-center text-capitalize">Nuevo Estado Habitación</h2>
         <hr>
         <div class="row">
-        	<div class="col-md-12 text-center">
-        		<a class="btn btn-success" href="insert">Agregar</a>
-        	</div>
-        	<div class="container mt-3 text-center">
-        		<div class="table-responsive">
-        		<table class="table">
-				  <thead class="thead-dark">
-				    <tr>
-				      <th scope="col">Tipo Habitación</th>
-				      <th scope="col">Acciones</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				    <tr>
-				      <td>Suite</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
-				    </tr>
-				    <tr>
-				      <td>Jr. Suite</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
-				    </tr>
-				    <tr>
-				      <td>Gran Suite</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
-				    </tr>
-				  </tbody>
-				</table></div>
+        	<div class="container mt-3">
+        		<form>
+				  <div class="form-group">
+				    <label for="name">Nombre</label>
+				    <input type="text" class="form-control" id="name" aria-describedby="nombre" placeholder="Ingrese el nombre del tipo de habitación">
+				  </div>
+				  <button type="submit" class="btn btn-success">Agregar</button>
+				  <button type="submit" class="btn btn-danger">Cancelar</button>
+				</form>
+			</div>
         	</div>
         </div>
       </div> <!-- /container -->

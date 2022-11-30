@@ -13,18 +13,18 @@ import com.sv.hotelprimavera.serviceInterface.IEstadoHabitacionService;
 
 
 @Controller
-@RequestMapping
+@RequestMapping(name="estadohabitacion")
 public class EstadoHabitacionController {
 
-	@Autowired
-	private IEstadoHabitacionService service;
-	
-	@GetMapping("/listar")
-	public String listar(Model model) {
-		List<EstadoHabitacion> estadoHabitacion = service.listar();
-		model.addAttribute("estadoHabitacion", estadoHabitacion);
-		
-		return "index";
-	}
+//	@Autowired
+//	private IEstadoHabitacionService service;
+//	
+//	@GetMapping("/")
+//	public String listar(Model model) {
+//		List<EstadoHabitacion> estadoHabitacion = service.listar();
+//		model.addAttribute("estadoHabitacion", estadoHabitacion);
+//		
+//		return "index";
+//	}
 	
 }

@@ -15,14 +15,14 @@ import com.sv.hotelprimavera.serviceInterface.IReservaService;
 @RequestMapping
 public class ReservaController {
 
-	@Autowired
-	private IReservaService service;
-	
-	@GetMapping("/listarReserva")
-	public String listar(Model model) {
-		List<Reserva>reservas=service.listar();
-		model.addAttribute("reservas", reservas);
-		return "index";
-	}
+//	@Autowired
+//	private IReservaService service;
+//	
+//	@GetMapping("/listarReserva")
+//	public String listar(Model model) {
+//		List<Reserva>reservas=service.listar();
+//		model.addAttribute("reservas", reservas);
+//		return "index";
+//	}
 
 }
