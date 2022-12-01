@@ -26,20 +26,23 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" th:href="@{/reservacrud/}">Reservas</a>
+            </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/etadohabitacion/}">Estados de Habitaciones</a>
+              <a class="nav-link" th:href="@{/estadohabitacion/}">Estados de Habitaciones</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" th:href="@{/tipohabitacion/}">Tipos de Habitaciones</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Habitaciones</a>
+              <a class="nav-link" th:href="@{/habitacioncrud}">Habitaciones</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" th:href="@{/tipousuario/}">Tipos de Usuarios</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/usuario/}">Usuarios</a>
+              <a class="nav-link" th:href="@{/usuariocrud/}">Usuarios</a>
             </li>          
           </ul>  
           <a class="btn btn-primary" href="#">Mi Perfil</a>&nbsp;
@@ -55,64 +58,37 @@
         <hr>
         <div class="row">
         	<div class="col-md-12 text-center">
-        		<a class="btn btn-success" href="insert">Agregar</a>
+        		<a class="btn btn-success" th:href="@{/usuariocrud/insert}">Agregar</a>
         	</div>
-        	<div class="container mt-3 text-center">
+        	<div class="container-fluid text-center">
         		<div class="table-responsive">
         		<table class="table">
 				  <thead class="thead-dark">
 				    <tr>
 				      <th scope="col">Nombres</th>
 				      <th scope="col">Apellidos</th>
+				      <th scope="col">Email</th>
+				      <th scope="col">Fecha Nacimiento</th>
 				      <th scope="col">Telefono</th>
+				      <th scope="col">Direccion</th>
 				      <th scope="col">Tipo Usuario</th>
 				      <th scope="col">Acciones</th>
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <tr>
-				      <td>Fernando Ernesto</td>
-				      <td>Carranza Guardado</td>
-				      <td>2222-2222</td>
-				      <td>Administrador</td>
+				    <tr th:each="usuario:${usuario}">
+				      <td th:text="${usuario.idDetalleUsuario.nombresUsuario}"></td>
+				      <td th:text="${usuario.idDetalleUsuario.apellidosUsuario}"></td>
+				      <td th:text="${usuario.emailUsuario}"></td>
+				      <td th:text="${usuario.idDetalleUsuario.fechaNacUsuario}"></td>
+				      <td th:text="${usuario.idDetalleUsuario.telefonoUsuario}"></td>
+				      <td th:text="${usuario.idDetalleUsuario.direccionUsuario}"></td>
+				      <td th:text="${usuario.idTipoUsuario.tipoUsuario}"></td>
 				      <td>
-				      <button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-warning">Actualizar Contraseña</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>Fernando Ernesto</td>
-				      <td>Carranza Guardado</td>
-				      <td>2222-2222</td>
-				      <td>Empleado</td>
-				      <td>
-				      <button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-warning">Actualizar Contraseña</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>Fernando Ernesto</td>
-				      <td>Carranza Guardado</td>
-				      <td>2222-2222</td>
-				      <td>Cliente</td>
-				      <td>
-				      <button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-warning">Actualizar Contraseña</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>Fernando Ernesto</td>
-				      <td>Carranza Guardado</td>
-				      <td>2222-2222</td>
-				      <td>Cliente</td>
-				      <td>
-				      <button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-warning">Actualizar Contraseña</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button>
-				      </td>
+					      <a type="button" class="btn btn-primary" th:href="@{/usuariocrud/update/{id}(id=${usuario.idUsuario})}">Modificar</a>
+					      <a type="button" class="btn btn-warning" th:href="@{/usuariocrud/updatepw/{id}(id=${usuario.idUsuario})}">Actualizar Contraseña</a>
+					      <a type="button" class="btn btn-danger" th:href="@{/usuariocrud/delete/{id}(id=${usuario.idUsuario})}">Eliminar</an>
+					  </td>
 				    </tr>
 				  </tbody>
 				</table></div>

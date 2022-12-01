@@ -13,19 +13,25 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
  * @author Luis Bernal
  */
 @Entity
-@Table(name="usuario")
+@DynamicUpdate
+@Table(name="usuario",uniqueConstraints=@UniqueConstraint(columnNames="emailUsuario"))
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idUsuario;
     private String emailUsuario;
     private String contraUsuario;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaRegistro;
     @OneToOne
     @JoinColumn(name = "idDetalleUsuario")

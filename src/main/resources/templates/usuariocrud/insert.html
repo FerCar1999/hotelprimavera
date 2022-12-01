@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Hotel Primavera | Usuarios</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
+        <a class="navbar-brand" href="#">Hotel Primavera</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" th:href="@{/reservacrud/}">Reservas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/estadohabitacion/}">Estados de Habitaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" th:href="@{/tipohabitacion/}">Tipos de Habitaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/habitacioncrud/}">Habitaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/tipousuario/}">Tipos de Usuarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/usuariocrud/}">Usuarios</a>
+            </li>          
+          </ul>  
+          <a class="btn btn-primary" href="#">Mi Perfil</a>&nbsp;
+          <a class="btn btn-danger" th:href="@{/login}">Cerrar Sesión</a>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+    	<hr>
+      <div class="container-fluid"> 
+        <h2 class="font-weight-bold text-center text-capitalize">Nuevo Usuario</h2>
+        <hr>
+        <div class="row">
+        	<div class="container mt-3">
+        		<form th:action="@{/usuariocrud/guardar}" th:object="${usuario}" method="post">
+	        		<div class="form-row">
+						  <div class="form-group col-md-6">
+						    <label for="nombre">Nombre</label>
+						    <input type="text" class="form-control" id="nombre" aria-describedby="nombre" placeholder="Ingrese el nombre del usuario" th:field="*{idDetalleUsuario.nombresUsuario}" required>
+						  </div>
+						  <div class="form-group col-md-6">
+						    <label for="apellido">Apellido</label>
+						    <input type="text" class="form-control" id="apellido" aria-describedby="nombre" placeholder="Ingrese el apellido del usuario" th:field="*{idDetalleUsuario.apellidosUsuario}" required>
+						  </div>
+						  <div class="form-group col-md-12">
+						  	<label for="inputAddress">Dirección</label>
+						    <input type="text" class="form-control" id="inputAddress" placeholder="Ingrese la dirección del usuario" th:field="*{idDetalleUsuario.direccionUsuario}" required>
+						  </div>
+						  <div class="form-group col-md-6">
+						  	<label for="telefono">Telefono</label>
+						    <input type="text" class="form-control" id="telefono" placeholder="Ingrese el telefono del usuario" th:field="*{idDetalleUsuario.telefonoUsuario}" required>
+						  </div>
+						  <div class="form-group col-md-6">
+			        		<label for="birthday">Fecha de Nacimiento</label>
+							<input id="birthday" class="form-control" type="date" th:field="*{idDetalleUsuario.fechaNacUsuario}" required />
+						  </div>
+					
+						  <div class="form-group col-md-12">
+						  	<label for="correo">Email</label>
+						    <input type="email" class="form-control" id="correo" placeholder="Ingrese el correo electrónico del usuario" th:field="*{emailUsuario}" required>
+						  </div>
+						  <div class="form-group col-md-6">
+						  		<label for="inputState">Tipo de Usuario</label>
+						      	<select id="inputState" class="form-control" th:field="*{idTipoUsuario}">
+						      		<th:block th:each="tipousuario: ${tipousuario}">
+						      			<option th:text="${tipousuario.tipoUsuario}" th:value="${tipousuario.idTipoUsuario}"></option>
+						      		</th>
+						      	</select>
+						  </div>
+						  <div class="form-group col-md-6">
+						    <label for="pass1">Contraseña</label>
+						    <input type="password" class="form-control" id="pass1" aria-describedby="pass1" placeholder="Ingrese la contraseña" th:field="*{contraUsuario}" required>
+						  </div>
+						  
+						  <div class="col-md-12 text-center">
+							  <button type="submit" class="btn btn-success">Agregar</button>
+							  <button type="reset" class="btn btn-danger">Cancelar</button>
+						  </div>
+					  </div>
+				</form>
+			</div>
+        	</div>
+        </div>
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+      <p>Hotel Primavera</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-  datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+  </body>
+</html>

@@ -5,17 +5,22 @@
 package com.sv.hotelprimavera.models;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  *
  * @author Luis Bernal
  */
 @Entity
+@DynamicUpdate
 @Table(name="detalleusuario")
 public class DetalleUsuario {
 	@Id
@@ -24,7 +29,9 @@ public class DetalleUsuario {
     private String nombresUsuario;
     private String apellidosUsuario;
     private String direccionUsuario;
+    @Column(unique = true)
     private String telefonoUsuario;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaNacUsuario;
 
     public DetalleUsuario() {

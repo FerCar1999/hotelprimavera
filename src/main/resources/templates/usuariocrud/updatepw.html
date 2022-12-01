@@ -24,7 +24,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
           <li class="nav-item">
               <a class="nav-link" th:href="@{/reservacrud/}">Reservas</a>
@@ -54,17 +54,23 @@
     <main role="main">
     	<hr>
       <div class="container-fluid"> 
-        <h2 class="font-weight-bold text-center text-capitalize">Nuevo Estado de Habitación</h2>
+        <h2 class="font-weight-bold text-center text-capitalize">Modificar Usuario</h2>
         <hr>
         <div class="row">
         	<div class="container mt-3">
-        		<form th:action="@{/estadohabitacion/guardar}" th:object="${estadohabitacion}" method="post">
-				  <div class="form-group">
-				    <label for="name">Estado:</label>
-				    <input type="text" class="form-control" id="tipohabitacion" aria-describedby="nombre" placeholder="Ingrese el nuevo estado de habitación" th:field="*{estadoHabitacion}" required>
-				  </div>
-				  <button class="btn btn-success">Agregar</button>
-				  <button type="reset" class="btn btn-danger">Cancelar</button>
+        		<form th:action="@{/usuariocrud/actualizarpw/{id}(id=${usuario.idUsuario})}" th:object="${usuario}" method="post">
+	        		<div class="form-row">
+						  <div class="form-group col-md-12">
+						    <label for="contra">Ingrese la nueva contraseña</label>
+						    <input type="password" class="form-control" id="contra" aria-describedby="contra" placeholder="Ingrese la nueva contraseña" th:field="*{contraUsuario}" required>
+						  </div>
+						  
+
+						  <div class="col-md-12 text-center">
+							  <button type="submit" class="btn btn-success">Modificar</button>
+							  <button type="reset" class="btn btn-danger">Cancelar</button>
+						  </div>
+					  </div>
 				</form>
 			</div>
         	</div>
@@ -72,6 +78,7 @@
       </div> <!-- /container -->
 
     </main>
+
     <footer class="footer">
       <div class="container">
       <p>Hotel Primavera</p>
@@ -81,7 +88,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-  datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
   </body>
 </html>
