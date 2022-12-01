@@ -1,10 +1,88 @@
-<!DOCTYPE html>
-<html xmlns:th=http:www.thymeleaf.org>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
 
-</body>
+    <title>Hotel Primavera | Usuarios</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
+        <a class="navbar-brand" href="#">Hotel Primavera</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" th:href="@{/reservacrud/}">Reservas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/estadohabitacion/}">Estados de Habitaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" th:href="@{/tipohabitacion/}">Tipos de Habitaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/habitacioncrud/}">Habitaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/tipousuario/}">Tipos de Usuarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/usuario/}">Usuarios</a>
+            </li>          
+          </ul>  
+          <a class="btn btn-primary" href="#">Mi Perfil</a>&nbsp;
+          <a class="btn btn-danger" th:href="@{/login}">Cerrar Sesión</a>
+        </div>
+      </nav>
+    </header>
+
+   <main role="main">
+    	<hr>
+      <div class="container-fluid"> 
+        <h2 class="font-weight-bold text-center text-capitalize">Editar Estado de Habitación</h2>
+        <hr>
+        <div class="row">
+        	<div class="container mt-3">
+        		<form th:action="@{/estadohabitacion/actualizar/{id}(id=${estadohabitacion.idEstadoHabitacion})}" th:object="${estadohabitacion}" method="post">
+				  <div class="form-group">
+				    <label for="name">Nombre</label>
+				    <input type="text" class="form-control" id="tipohabitacion" aria-describedby="nombre" placeholder="Ingrese el estado de habitación" th:field="*{estadoHabitacion}" required> 
+				  </div>
+				  <button class="btn btn-success">Editar</button>
+				  <button type="reset" class="btn btn-danger">Cancelar</button>
+				</form>
+			</div>
+        	</div>
+        </div>
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+      <p>Hotel Primavera</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+  </body>
 </html>

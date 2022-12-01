@@ -1,8 +1,6 @@
 package com.sv.hotelprimavera.service;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +17,7 @@ public class TipoHabitacionService  implements ITipoHabitacionService{
 	@Override
 	public List<TipoHabitacion> listar() {
 		return data.findActive();
+		
 	}
 
 	@Override
@@ -32,6 +31,7 @@ public class TipoHabitacionService  implements ITipoHabitacionService{
 		return data.save(th);
 	}
 
+	//cambia el estado de 1 activo a 0 inactivo
 	@Override
 	public TipoHabitacion delete(TipoHabitacion th) {
 		return data.save(th);

@@ -24,26 +24,29 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" th:href="estadohabitacion/index">Estados de Habitaciones</a>
+          <li class="nav-item">
+              <a class="nav-link" th:href="@{/reservacrud/}">Reservas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" th:href="tipohabitacion/index">Tipos de Habitaciones</a>
+              <a class="nav-link  active" th:href="@{/estadohabitacion/}">Estados de Habitaciones</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="#">Habitaciones</a>
+              <a class="nav-link" th:href="@{/tipohabitacion/}">Tipos de Habitaciones</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="tipousuario/index">Tipos de Usuarios</a>
+              <a class="nav-link" th:href="@{/habitacioncrud/}">Habitaciones</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="usuario/index">Usuarios</a>
+              <a class="nav-link" th:href="@{/tipousuario/}">Tipos de Usuarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/usuario/}">Usuarios</a>
             </li>          
           </ul>  
-          <a class="btn btn-primary" th:href="#">Mi Perfil</a>&nbsp;
-          <a class="btn btn-danger" th:href="login">Cerrar Sesión</a>
+          <a class="btn btn-primary" href="#">Mi Perfil</a>&nbsp;
+          <a class="btn btn-danger" th:href="@{/login}">Cerrar Sesión</a>
         </div>
       </nav>
     </header>
@@ -55,40 +58,29 @@
         <hr>
         <div class="row">
         	<div class="col-md-12 text-center">
-        		<a class="btn btn-success" href="insert">Agregar</a>
+        		<a class="btn btn-success" th:href="@{/estadohabitacion/insert}">Agregar</a>
+        		
         	</div>
         	<div class="container mt-3 text-center">
         		<div class="table-responsive">
         		<table class="table">
 				  <thead class="thead-dark">
 				    <tr>
-				      <th scope="col">Estado Habitacion</th>
+				      <th scope="col">Estado de la Habitacion</th>
 				      <th scope="col">Acciones</th>
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <tr>
-				      <td>Disponible</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
-				    </tr>
-				    <tr>
-				      <td>En Uso</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
-				    </tr>
-				    <tr>
-				      <td>En Remodelación</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
-				    </tr>
-				    <tr>
-				      <td>En Limpieza</td>
-				      <td><button type="button" class="btn btn-primary">Modificar</button>
-				      <button type="button" class="btn btn-danger">Eliminar</button></td>
+				 
+				    <tr th:each="estadohabitacion: ${estadohabitacion}">
+				      <td th:text="${estadohabitacion.estadoHabitacion}"></td>
+				      <td><a class="btn btn-primary" th:href="@{/estadohabitacion/update/{id}(id=${estadohabitacion.idEstadoHabitacion})}">Modificar</a>
+				      <a class="btn btn-danger" th:href="@{/estadohabitacion/delete/{id}(id=${estadohabitacion.idEstadoHabitacion})}">Eliminar</a></td>
 				    </tr>
 				  </tbody>
-				</table></div>
+				</table>
+				</div>
+        	</div>
         	</div>
         </div>
       </div> <!-- /container -->

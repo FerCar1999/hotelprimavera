@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Hotel Primavera | Usuarios</title>
+    <title>Hotel Primavera | Tipos de Habitaciones</title>
     <!-- Bootstrap core CSS -->
     <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -24,7 +27,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
           <li class="nav-item">
               <a class="nav-link" th:href="@{/reservacrud/}">Reservas</a>
@@ -54,24 +57,50 @@
     <main role="main">
     	<hr>
       <div class="container-fluid"> 
-        <h2 class="font-weight-bold text-center text-capitalize">Nuevo Estado de Habitación</h2>
+        <h2 class="font-weight-bold text-center text-capitalize">Habitaciones</h2>
         <hr>
         <div class="row">
-        	<div class="container mt-3">
-        		<form th:action="@{/estadohabitacion/guardar}" th:object="${estadohabitacion}" method="post">
-				  <div class="form-group">
-				    <label for="name">Estado:</label>
-				    <input type="text" class="form-control" id="tipohabitacion" aria-describedby="nombre" placeholder="Ingrese el nuevo estado de habitación" th:field="*{estadoHabitacion}" required>
-				  </div>
-				  <button class="btn btn-success">Agregar</button>
-				  <button type="reset" class="btn btn-danger">Cancelar</button>
-				</form>
-			</div>
+        	<div class="col-md-12 text-center">
+        		<a class="btn btn-success" th:href="@{/habitacioncrud/insert}">Agregar</a>
+        		
+        	</div>
+        	<div class="container mt-3 text-center">
+        		<div class="table-responsive">
+        		<table class="table">
+				  <thead class="thead-dark">
+				    <tr>
+				      <th scope="col">Nombre</th>
+				      <th scope="col">Piso</th>
+				      <th scope="col">Capacidad</th>
+				      <th scope="col">Descripcion</th>
+				      <th scope="col">Tipo</th>
+				      <th scope="col">Estado</th>
+				      <th scope="col">Precio</th>
+				      <th scope="col">Acciones</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				 
+				    <tr th:each="habitacion: ${habitacion}">
+				      <td th:text="${habitacion.nombreHabitacion}"></td>
+				      <td th:text="${habitacion.pisoHabitacion}"></td>
+				      <td th:text="${habitacion.capacidadHabitacion}"></td>
+				      <td th:text="${habitacion.descripcionHabitacion}"></td>
+				      <td th:text="${habitacion.idTipoHabitacion.tipoHabitacion}"></td>
+				      <td th:text="${habitacion.idEstadoHabitacion.estadoHabitacion}"></td>
+				      <td th:text="${habitacion.precioHabitacion}"></td>
+				      <td><a class="btn btn-primary" th:href="@{/habitacioncrud/update/{id}(id=${habitacion.idHabitacion})}">Modificar</a>
+				      
+				    </tr>
+				  </tbody>
+				</table>
+				</div>
         	</div>
         </div>
       </div> <!-- /container -->
 
     </main>
+
     <footer class="footer">
       <div class="container">
       <p>Hotel Primavera</p>

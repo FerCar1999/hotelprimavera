@@ -1,15 +1,14 @@
 package com.sv.hotelprimavera.models;
 
 import java.sql.Date;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 
 @Entity
@@ -18,17 +17,20 @@ public class Reserva {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idReserva;
-	@OneToMany
+	@ManyToOne
     @JoinColumn(name = "idUsuario")
-	private List<Usuario> idUsuario=new LinkedList<>();
-	@OneToMany
+	private Usuario idUsuario;
+	@ManyToOne
     @JoinColumn(name = "idHabitacion")
-	private List<Habitacion> idHabitacion=new LinkedList<>();
+	private Habitacion idHabitacion;
 	private double totalPago;
 	private Date fechaInicio;
 	private Date fechaFin;
 	
-	public Reserva(int idReserva, List<Usuario> idUsuario, List<Habitacion> idHabitacion, double totalPago,
+	public Reserva() {
+		super();
+	}
+	public Reserva(int idReserva, Usuario idUsuario, Habitacion idHabitacion, double totalPago,
 			Date fechaInicio, Date fechaFin) {
 		super();
 		this.idReserva = idReserva;
@@ -44,16 +46,16 @@ public class Reserva {
 	public void setIdReserva(int idReserva) {
 		this.idReserva = idReserva;
 	}
-	public List<Usuario> getIdUsuario() {
+	public Usuario getIdUsuario() {
 		return idUsuario;
 	}
-	public void setIdUsuario(List<Usuario> idUsuario) {
+	public void setIdUsuario(Usuario idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-	public List<Habitacion> getIdHabitacion() {
+	public Habitacion getIdHabitacion() {
 		return idHabitacion;
 	}
-	public void setIdHabitacion(List<Habitacion> idHabitacion) {
+	public void setIdHabitacion(Habitacion idHabitacion) {
 		this.idHabitacion = idHabitacion;
 	}
 	public double getTotalPago() {

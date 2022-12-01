@@ -31,11 +31,11 @@ public class Habitacion {
     @OneToOne
     @JoinColumn(name = "idEstadoHabitacion")
     private EstadoHabitacion idEstadoHabitacion;
-
+    private double precioHabitacion;
     public Habitacion() {
     }
 
-    public Habitacion(int idHabitacion, String nombreHabitacion, int pisoHabitacion, int capacidadHabitacion, String descripcionHabitacion, TipoHabitacion idTipoHabitacion, EstadoHabitacion idEstadoHabitacion) {
+    public Habitacion(int idHabitacion, String nombreHabitacion, int pisoHabitacion, int capacidadHabitacion, String descripcionHabitacion, TipoHabitacion idTipoHabitacion, EstadoHabitacion idEstadoHabitacion,double precioHabitacion) {
         this.idHabitacion = idHabitacion;
         this.nombreHabitacion = nombreHabitacion;
         this.pisoHabitacion = pisoHabitacion;
@@ -43,9 +43,19 @@ public class Habitacion {
         this.descripcionHabitacion = descripcionHabitacion;
         this.idTipoHabitacion = idTipoHabitacion;
         this.idEstadoHabitacion = idEstadoHabitacion;
+        this.precioHabitacion = precioHabitacion;
     }
+    
 
-    public int getIdHabitacion() {
+    public double getPrecioHabitacion() {
+		return precioHabitacion;
+	}
+
+	public void setPrecioHabitacion(double precioHabitacion) {
+		this.precioHabitacion = precioHabitacion;
+	}
+
+	public int getIdHabitacion() {
         return idHabitacion;
     }
 

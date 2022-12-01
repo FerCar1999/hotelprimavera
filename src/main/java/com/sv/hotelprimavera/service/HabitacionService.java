@@ -1,7 +1,7 @@
 package com.sv.hotelprimavera.service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,25 +18,27 @@ public class HabitacionService implements IHabitacionService{
 	@Override
 	public List<Habitacion> listar() {
 		// TODO Auto-generated method stub
-		return null;
+		return data.findActive();
 	}
 
 	@Override
-	public Optional<Habitacion> listarId(int id) {
+	public Habitacion listarId(int id) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return data.findById(id).get();
 	}
 
 	@Override
-	public int save(Habitacion h) {
+	public Habitacion save(Habitacion h) {
 		// TODO Auto-generated method stub
-		return 0;
+		return data.save(h);
 	}
 
+
+
 	@Override
-	public void delete(int id) {
+	public Habitacion update(Habitacion h) {
 		// TODO Auto-generated method stub
-		
+		return data.save(h);
 	}
 	
 	

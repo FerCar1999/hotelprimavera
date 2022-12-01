@@ -33,21 +33,19 @@ public class Usuario {
     @OneToOne
     @JoinColumn(name = "idTipoUsuario")
     private TipoUsuario idTipoUsuario;
-    @OneToOne
-    @JoinColumn(name = "idEstadoUsuario")
-    private EstadoUsuario idEstadoUsuario;
+    private int estadoUsuario;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String emailUsuario, String contraUsuario, Date fechaRegistro, DetalleUsuario idDetalleUsuario, TipoUsuario idTipoUsuario, EstadoUsuario idEstadoUsuario) {
+    public Usuario(int idUsuario, String emailUsuario, String contraUsuario, Date fechaRegistro, DetalleUsuario idDetalleUsuario, TipoUsuario idTipoUsuario, int estadoUsuario) {
         this.idUsuario = idUsuario;
         this.emailUsuario = emailUsuario;
         this.contraUsuario = contraUsuario;
         this.fechaRegistro = fechaRegistro;
         this.idDetalleUsuario = idDetalleUsuario;
         this.idTipoUsuario = idTipoUsuario;
-        this.idEstadoUsuario = idEstadoUsuario;
+        this.estadoUsuario = estadoUsuario;
     }
 
     public int getIdUsuario() {
@@ -98,12 +96,12 @@ public class Usuario {
         this.idTipoUsuario = idTipoUsuario;
     }
 
-    public EstadoUsuario getIdEstadoUsuario() {
-        return idEstadoUsuario;
+    public int getIdEstadoUsuario() {
+        return estadoUsuario;
     }
 
-    public void setIdEstadoUsuario(EstadoUsuario idEstadoUsuario) {
-        this.idEstadoUsuario = idEstadoUsuario;
+    public void setIdEstadoUsuario(int idEstadoUsuario) {
+        this.estadoUsuario = idEstadoUsuario;
     }
     
 }

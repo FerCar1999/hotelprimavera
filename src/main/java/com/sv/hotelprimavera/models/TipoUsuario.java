@@ -21,7 +21,7 @@ public class TipoUsuario {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idTipoUsuario;
     private String tipoUsuario;
-    private int estadoTipoUsuario;
+    private int estadoTipoUsuario=1;
 
     public TipoUsuario() {
     }

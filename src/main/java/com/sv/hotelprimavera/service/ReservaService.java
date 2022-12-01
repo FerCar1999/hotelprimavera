@@ -1,14 +1,13 @@
 package com.sv.hotelprimavera.service;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.sv.hotelprimavera.interfaces.InterfaceReserva;
 import com.sv.hotelprimavera.models.Reserva;
 import com.sv.hotelprimavera.serviceInterface.IReservaService;
-
+@Service
 public class ReservaService implements IReservaService {
 
 	@Autowired
@@ -17,25 +16,13 @@ public class ReservaService implements IReservaService {
 	@Override
 	public List<Reserva> listar() {
 		// TODO Auto-generated method stub
-		return (List<Reserva>) data.findAll();
+		return data.findOrdered();
 	}
 
-	@Override
-	public Optional<Reserva> listarId(int id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
-
-	@Override
-	public int save(Reserva r) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	//usado como metodo para cancelar
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+		data.deleteById(id);
 	}
 
 }

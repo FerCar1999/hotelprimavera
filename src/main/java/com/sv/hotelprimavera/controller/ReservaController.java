@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sv.hotelprimavera.models.Reserva;
@@ -15,14 +16,19 @@ import com.sv.hotelprimavera.serviceInterface.IReservaService;
 @RequestMapping
 public class ReservaController {
 
-//	@Autowired
-//	private IReservaService service;
-//	
-//	@GetMapping("/listarReserva")
-//	public String listar(Model model) {
-//		List<Reserva>reservas=service.listar();
-//		model.addAttribute("reservas", reservas);
-//		return "index";
-//	}
+	@Autowired
+	private IReservaService service;
+	
+	@GetMapping("/reservacrud")
+	public String listar(Model model) {
+		List<Reserva>reservas=service.listar();
+		model.addAttribute("reserva", reservas);
+		return "reservacrud/index";
+	}
+	@GetMapping("reservacrud/delete/{id}")
+	public String borrarReserva(@PathVariable int id) {
+		service.delete(id);
+		return "redirect:/reservacrud";
+	}
 
 }

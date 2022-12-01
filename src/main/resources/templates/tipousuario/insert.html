@@ -26,14 +26,17 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" th:href="@{/reservacrud/}">Reservas</a>
+            </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/etadohabitacion/}">Estados de Habitaciones</a>
+              <a class="nav-link" th:href="@{/estadohabitacion/}">Estados de Habitaciones</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" th:href="@{/tipohabitacion/}">Tipos de Habitaciones</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Habitaciones</a>
+              <a class="nav-link" href="@{/habitacioncrud/}">Habitaciones</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" th:href="@{/tipousuario/}">Tipos de Usuarios</a>
@@ -48,20 +51,20 @@
       </nav>
     </header>
 
-    <main role="main">
+  <main role="main">
     	<hr>
       <div class="container-fluid"> 
-        <h2 class="font-weight-bold text-center text-capitalize">Nuevo Tipo Usuario</h2>
+        <h2 class="font-weight-bold text-center text-capitalize">Nuevo Tipo de Usuario</h2>
         <hr>
         <div class="row">
         	<div class="container mt-3">
-        		<form>
+        		<form th:action="@{/tipousuario/guardar}" th:object="${tipousuario}" method="post">
 				  <div class="form-group">
 				    <label for="name">Nombre</label>
-				    <input type="text" class="form-control" id="name" aria-describedby="nombre" placeholder="Ingrese el nombre del tipo de habitación">
+				    <input type="text" class="form-control" id="tipohusuario" aria-describedby="nombre" placeholder="Ingrese el tipo de usuario" th:field="*{tipoUsuario}" required>
 				  </div>
-				  <button type="submit" class="btn btn-success">Agregar</button>
-				  <button type="submit" class="btn btn-danger">Cancelar</button>
+				  <button class="btn btn-success">Agregar</button>
+				  <button type="reset" class="btn btn-danger">Cancelar</button>
 				</form>
 			</div>
         	</div>
@@ -69,7 +72,6 @@
       </div> <!-- /container -->
 
     </main>
-
     <footer class="footer">
       <div class="container">
       <p>Hotel Primavera</p>

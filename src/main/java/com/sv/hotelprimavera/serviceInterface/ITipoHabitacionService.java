@@ -1,7 +1,6 @@
 package com.sv.hotelprimavera.serviceInterface;
 
 import java.util.List;
-import java.util.Optional;
 import com.sv.hotelprimavera.models.TipoHabitacion;
 
 public interface ITipoHabitacionService {
