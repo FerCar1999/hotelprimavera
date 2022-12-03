@@ -10,4 +10,6 @@ public interface IUsuarioService {
 	public Usuario save (Usuario u);
 	public Usuario update(Usuario u);
 	public Usuario delete (Usuario u);
+	public Usuario listarPorEmail(String correo);
+	public  String getMd5(String input);
 }

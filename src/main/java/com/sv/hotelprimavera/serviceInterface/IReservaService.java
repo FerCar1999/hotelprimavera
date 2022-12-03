@@ -11,5 +11,7 @@ public interface IReservaService {
 	
 	public List<Reserva> listar();
 	public void delete (int id);
+	public List<Reserva> listarPorUsuario(int id);
+	public Reserva save(Reserva r);
 
 }

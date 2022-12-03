@@ -9,4 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface InterfaceHabitacion extends JpaRepository<Habitacion, Integer>{
 	@Query(value="SELECT * FROM habitacion order by idEstadoHabitacion desc",nativeQuery = true)
 	List<Habitacion> findActive();
+
+	@Query(value="SELECT * FROM habitacion where idEstadoHabitacion=3",nativeQuery = true)
+	List<Habitacion> findActiveUser();
 }

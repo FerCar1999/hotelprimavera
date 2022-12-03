@@ -39,6 +39,7 @@ public class UsuarioController {
 		List<Usuario> usuario = service.listar();
 		model.addAttribute("usuario", usuario);
 		return "usuariocrud/index";
+
 	}
 	@GetMapping("usuariocrud/insert")
 	public String formularioNuevoUsuario(Model modelo) {
@@ -52,7 +53,7 @@ public class UsuarioController {
 	@PostMapping("usuariocrud/guardar")
 	public String guardarNuevoUsuario(Usuario usuario) {
 		//encriptando
-		String hash=getMd5(usuario.getContraUsuario());
+		String hash=service.getMd5(usuario.getContraUsuario());
 		usuario.setContraUsuario(hash);
 		java.util.Date date = new java.util.Date();  
 		usuario.setFechaRegistro(date);
@@ -62,6 +63,8 @@ public class UsuarioController {
 		service.save(usuario);
 		return "redirect:/usuariocrud";
 	}
+
+
 	@GetMapping("usuariocrud/update/{id}")
 	public String formularioActualizarUsuario(@PathVariable("id") int id,Model modelo) {
 		Usuario u=service.listarId(id);
@@ -75,11 +78,11 @@ public class UsuarioController {
 	@PostMapping("usuariocrud/actualizar/{id}")
 	public String actualizarUsuario(@PathVariable int id,@ModelAttribute("Usuario")Usuario usuario) {
 		Usuario uex=service.listarId(id);
-		DetalleUsuario duex=servicedu.listarId(id);
+		DetalleUsuario duex=servicedu.listarId(uex.getIdDetalleUsuario().getIdDetalleUsuario());
 		uex.setIdUsuario(id);
 		uex.setEmailUsuario(usuario.getEmailUsuario());
 		uex.setIdTipoUsuario(usuario.getIdTipoUsuario());
-		duex.setIdDetalleUsuario(id);
+		duex.setIdDetalleUsuario(uex.getIdDetalleUsuario().getIdDetalleUsuario());
 		duex.setNombresUsuario(usuario.getIdDetalleUsuario().getNombresUsuario());
 		duex.setApellidosUsuario(usuario.getIdDetalleUsuario().getApellidosUsuario());
 		duex.setDireccionUsuario(usuario.getIdDetalleUsuario().getDireccionUsuario());
@@ -106,39 +109,11 @@ public class UsuarioController {
 	public String actualizarUsuarioPassword(@PathVariable int id,@ModelAttribute("Usuario")Usuario usuario) {
 		Usuario uex=service.listarId(id);
 		uex.setIdUsuario(id);
-		String hash=getMd5(usuario.getContraUsuario());
+		String hash=service.getMd5(usuario.getContraUsuario());
 		uex.setContraUsuario(hash);
 		service.save(uex);
 		return "redirect:/usuariocrud";
 	}
 
-	
-	//encriptacion md5
-	public static String getMd5(String input)
-    {
-        try {
- 
-            // Static getInstance method is called with hashing MD5
-            MessageDigest md = MessageDigest.getInstance("MD5");
- 
-            // digest() method is called to calculate message digest
-            // of an input digest() return array of byte
-            byte[] messageDigest = md.digest(input.getBytes());
- 
-            // Convert byte array into signum representation
-            BigInteger no = new BigInteger(1, messageDigest);
- 
-            // Convert message digest into hex value
-            String hashtext = no.toString(16);
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
-            }
-            return hashtext;
-        }
- 
-        // For specifying wrong message digest algorithms
-        catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
 }

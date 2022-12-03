@@ -2,6 +2,8 @@ package com.sv.hotelprimavera.controller;
 
 import java.util.List;
 
+import com.sv.hotelprimavera.models.SessionHandler;
+import com.sv.hotelprimavera.models.TipoHabitacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,9 +26,16 @@ public class TipoUsuarioController {
 	
 	@GetMapping("/")
 	public String listar(Model model) {
-		List<TipoUsuario> tipoUsuario = service.listar();
-		model.addAttribute("tipousuario", tipoUsuario);
-		return "tipousuario/index";
+
+		if (SessionHandler.tipo==1){
+			List<TipoUsuario> tipoUsuario = service.listar();
+			model.addAttribute("tipousuario", tipoUsuario);
+			return "tipousuario/index";
+		}else if(SessionHandler.tipo==3){
+			return "redirect:/cliente/index";
+		}else{
+			return "redirect:/reservacrud/";
+		}
 	}
 	/*
 	@GetMapping("/")

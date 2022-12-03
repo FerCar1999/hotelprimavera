@@ -2,6 +2,8 @@ package com.sv.hotelprimavera.controller;
 
 import java.util.List;
 
+import com.sv.hotelprimavera.models.Habitacion;
+import com.sv.hotelprimavera.models.SessionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,9 +26,14 @@ public class EstadoHabitacionController {
 	
 	@GetMapping("/estadohabitacion")
 	public String listar(Model model) {
-		List<EstadoHabitacion> estadoHabitacion = service.listar();
-		model.addAttribute("estadohabitacion", estadoHabitacion);
-		return "estadohabitacion/index";
+
+		if (SessionHandler.tipo==1||SessionHandler.tipo==2){
+			List<EstadoHabitacion> estadoHabitacion = service.listar();
+			model.addAttribute("estadohabitacion", estadoHabitacion);
+			return "estadohabitacion/index";
+		}else{
+			return "redirect:/cliente/index";
+		}
 	}
 	@GetMapping("estadohabitacion/insert")
 	public String crearTipoHabitacionForm(Model modelo) {

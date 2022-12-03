@@ -11,4 +11,7 @@ import com.sv.hotelprimavera.models.Usuario;
 public interface InterfaceUsuario extends JpaRepository<Usuario, Integer>{
 	@Query(value="select * from usuario where estadousuario=1",nativeQuery = true)
 	List<Usuario> findActive();
+
+	@Query(value="select * from usuario where emailUsuario=?1",nativeQuery = true)
+	Usuario findCorreo(String correo);
 }

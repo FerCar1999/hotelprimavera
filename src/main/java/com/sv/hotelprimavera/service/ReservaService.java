@@ -25,4 +25,14 @@ public class ReservaService implements IReservaService {
 		data.deleteById(id);
 	}
 
+	@Override
+	public List<Reserva> listarPorUsuario(int id) {
+		return data.findByUsuario(id);
+	}
+
+	@Override
+	public Reserva save(Reserva r) {
+		return data.save(r);
+	}
+
 }

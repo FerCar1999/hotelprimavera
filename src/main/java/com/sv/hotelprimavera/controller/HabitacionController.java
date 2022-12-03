@@ -2,6 +2,7 @@ package com.sv.hotelprimavera.controller;
 
 import java.util.List;
 
+import com.sv.hotelprimavera.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.sv.hotelprimavera.models.EstadoHabitacion;
-import com.sv.hotelprimavera.models.Habitacion;
-import com.sv.hotelprimavera.models.TipoHabitacion;
 import com.sv.hotelprimavera.serviceInterface.IEstadoHabitacionService;
 import com.sv.hotelprimavera.serviceInterface.IHabitacionService;
 import com.sv.hotelprimavera.serviceInterface.ITipoHabitacionService;
@@ -29,9 +27,14 @@ public class HabitacionController {
 	private IEstadoHabitacionService serviceeh;
 	@GetMapping("/habitacioncrud")
 	public String listar(Model model) {
-		List<Habitacion> habitaciones = service.listar();
-		model.addAttribute("habitacion", habitaciones);
-		return "habitacioncrud/index";
+
+		if (SessionHandler.tipo==1||SessionHandler.tipo==2){
+			List<Habitacion> habitaciones = service.listar();
+			model.addAttribute("habitacion", habitaciones);
+			return "habitacioncrud/index";
+		}else{
+			return "redirect:/cliente/index";
+		}
 	}
 	@GetMapping("habitacioncrud/insert")
 	public String formularioNuevaHabitacion(Model modelo) {

@@ -11,4 +11,7 @@ import com.sv.hotelprimavera.models.Reserva;
 public interface InterfaceReserva extends JpaRepository <Reserva, Integer> {
 	@Query(value="select * from reserva order by fechaFin",nativeQuery = true)
 	List<Reserva> findOrdered();
+
+	@Query(value="select * from reserva where idUsuario=?1",nativeQuery = true)
+	List<Reserva> findByUsuario(int id);
 }

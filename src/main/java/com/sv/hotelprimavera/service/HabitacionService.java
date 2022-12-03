@@ -22,6 +22,11 @@ public class HabitacionService implements IHabitacionService{
 	}
 
 	@Override
+	public List<Habitacion> listarlimpias() {
+		return data.findActiveUser();
+	}
+
+	@Override
 	public Habitacion listarId(int id) {
 		// TODO Auto-generated method stub
 		return data.findById(id).get();
