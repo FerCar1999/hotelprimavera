@@ -1,6 +1,6 @@
 --hola
-create database ReservasHotelAlt
-use ReservasHotelAlt
+create database ReservasHotel
+use ReservasHotel
 create table TipoUsuario(
 	idTipoUsuario int not null primary key AUTO_INCREMENT,
 	tipoUsuario varchar(50) not null,
